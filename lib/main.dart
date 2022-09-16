@@ -1,6 +1,14 @@
-import 'user.dart';
+import 'package:flutter/material.dart';
 
+import 'MethodChannel/methodchannel.dart';
+//import 'user.dart';
 void main() {
+  //methodCannnelのサンプルコード
+  runApp(const MyApp());
+}
+/*
+void main() {
+//Freezedのサンプルコード
   // ユーザを3つ作成する。user1とuser3は同じ内容
   User user1 = User('kazutxt', 30);
   User user2 = User('FakeName', 0);
@@ -28,4 +36,5 @@ void main() {
   // immutableを破壊するので、以下のような使い方はNG
   // user1.name = "unknown";}
 }
+*/
 
