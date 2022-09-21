@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+//
 
-class SharedPreferences extends StatelessWidget {
-  const SharedPreferences({Key? key}) : super(key: key);
+import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 
+class SharedPreferencesPage extends StatelessWidget {
+  const SharedPreferencesPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'shared_preferences',
+      title: 'shared_preferencesの使い方',
       theme: ThemeData.dark(),
       home: const HomePage(),
     );
@@ -25,7 +27,10 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   // インスタンスの生成
   final prefs = SharedPreferences.getInstance();
+  //TextField を作る時はcontrollerオブジェクトにTextEditingController()クラスをぶち込む
   final controller = TextEditingController();
+
+  //保存したい値を入れる変数valueの初期値は空白にしておく
   String value = '';
   @override
   void initState() {
@@ -38,7 +43,7 @@ class _HomePageState extends State<HomePage> {
     final prefs = await SharedPreferences.getInstance();
     setState(() {
       //　データの読み込み
-      value = prefs.getString('text')!;
+      value = prefs.getString('str')!;
     });
   }
 
@@ -51,6 +56,7 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           children: [
             // 保存されたデータが表示される
+            Text('表示してみる'),
             Text(value, style: const TextStyle(fontSize: 40.0)),
             TextField(
               controller: controller,
@@ -63,7 +69,7 @@ class _HomePageState extends State<HomePage> {
                   onPressed: () async {
                     final prefs = await SharedPreferences.getInstance();
                     //　データの保存
-                    prefs.setString('text', controller.text);
+                    prefs.setString('string', controller.text);
                   },
                   child: const Text('Save'),
                 ),
@@ -72,7 +78,7 @@ class _HomePageState extends State<HomePage> {
                     final prefs = await SharedPreferences.getInstance();
                     setState(() {
                       // データの読み込み
-                      value = prefs.getString('text')!;
+                      value = prefs.getString('string')!;
                     });
                   },
                   child: const Text('Load'),
@@ -84,13 +90,14 @@ class _HomePageState extends State<HomePage> {
                       value = '';
                       controller.text = '';
                       // データの削除
-                      prefs.remove('text');
+                      prefs.remove('');
                     });
                   },
                   child: const Text('Clear'),
                 ),
               ],
             ),
+            SizedBox(height: 30),
           ],
         ),
       ),

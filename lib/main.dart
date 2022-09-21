@@ -1,11 +1,11 @@
-import 'package:farmig_study/shared_preferences/shared_preferences.dart';
+import 'package:farmig_study/shared_preferences/shared_preferences_page.dart';
 import 'package:flutter/material.dart';
 
 import 'MethodChannel/methodchannel.dart';
 //import 'user.dart';
 
 void main() {
-  runApp(const SharedPreferences());
+  runApp(const SharedPreferencesPage());
 }
 
 /*void main() {
