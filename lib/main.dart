@@ -1,11 +1,18 @@
+import 'package:farmig_study/shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 
 import 'MethodChannel/methodchannel.dart';
 //import 'user.dart';
+
 void main() {
+  runApp(const SharedPreferences());
+}
+
+/*void main() {
   //methodCannnelのサンプルコード
   runApp(const MyApp());
-}
+}*/
+
 /*
 void main() {
 //Freezedのサンプルコード
