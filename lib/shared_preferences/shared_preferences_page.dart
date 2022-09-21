@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-//
-
+//keybordVisiblyを使ってみた
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 
 class SharedPreferencesPage extends StatelessWidget {
@@ -44,6 +43,17 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       //　データの読み込み
       value = prefs.getString('str')!;
+      // keyboardオブジェクト設置。インスタンス詰める
+      var keyboard = KeyboardVisibilityController();
+
+      //以下１行でインスタンス変数を呼び出す。ここで渡すコールバックとしては、
+      //keyboardVisiblyからtrueが送られてきたら特に作動せず、
+      //入力欄では無いところに遷移していたら(!visible=falseなら)if内の処理が起動してunfocus()になる
+      keyboard.onChange.listen((visible) {
+        if (!visible) {
+          FocusScope.of(context).unfocus();
+        }
+      });
     });
   }
 
@@ -60,6 +70,10 @@ class _HomePageState extends State<HomePage> {
             Text(value, style: const TextStyle(fontSize: 40.0)),
             TextField(
               controller: controller,
+              decoration: const InputDecoration(
+                  hintText: 'このもじはヒントテキストです',
+                hintStyle: TextStyle(color: Colors.white)
+              ),
             ),
             const SizedBox(height: 30.0),
             Row(
