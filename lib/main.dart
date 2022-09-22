@@ -1,12 +1,15 @@
+import 'package:farmig_study/flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:farmig_study/shared_preferences/shared_preferences_page.dart';
 import 'package:flutter/material.dart';
 
-import 'MethodChannel/methodchannel.dart';
 //import 'user.dart';
 
 void main() {
-  runApp(const SharedPreferencesPage());
+  runApp(const FlutterSecureStoragePage());
 }
+/*void main() {
+  runApp(const SharedPreferencesPage());
+}*/
 
 /*void main() {
   //methodCannnelのサンプルコード
