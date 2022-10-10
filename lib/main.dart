@@ -1,12 +1,24 @@
+import 'package:farmig_study/default_code/default_code_page.dart';
 import 'package:farmig_study/flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:farmig_study/shared_preferences/shared_preferences_page.dart';
 import 'package:flutter/material.dart';
 
-//import 'user.dart';
+import 'API/API_page.dart';
+import 'image_picker_gallery/image_picker_gallery_page.dart';
 
-void main() {
-  runApp(const FlutterSecureStoragePage());
+//import 'user.dart';
+/*void main(){
+  runApp(APIPage());
+}*/
+void main(){
+  runApp(DefaultCodePage());
 }
+/*void main(){
+  runApp(ImagePickerGalleryPage());
+}*/
+/*void main() {
+  runApp(const FlutterSecureStoragePage());
+}*/
 /*void main() {
   runApp(const SharedPreferencesPage());
 }*/
