@@ -7,12 +7,12 @@ import 'API/API_page.dart';
 import 'image_picker_gallery/image_picker_gallery_page.dart';
 
 //import 'user.dart';
-/*void main(){
-  runApp(APIPage());
-}*/
 void main(){
-  runApp(DefaultCodePage());
+  runApp(APIPage());
 }
+/*void main(){
+  runApp(DefaultCodePage());
+}*/
 /*void main(){
   runApp(ImagePickerGalleryPage());
 }*/
